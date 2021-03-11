@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hu$tlang
+                    nguyen tien thoa
                 </div>
 
                 <div class="links">
