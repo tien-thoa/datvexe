@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Thông tin tài khoản') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('update') }}">
+                    <form method="POST" action="{{ route('user.update') }}">
                         @csrf
                         
                         @if(session('success'))
@@ -18,7 +18,7 @@
                         @endif
                         <br>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Họ và tên') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user['name'] }}" required autocomplete="name" autofocus>
@@ -42,6 +42,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Giới tính</label>
+                            <div class="col-md-6">
+                                    <div style="margin-top:8px;">
+                                    <select name="gender" id="Gender">
+                                    <option value="Nam">{{ $user['gender'] }}</option>
+                                    <option value="Nam" disabled="disabled">Chọn lại</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                    </select>
+                                    </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -86,3 +99,4 @@
     </div>
 </div>
 @endsection
+

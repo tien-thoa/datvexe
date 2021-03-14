@@ -17,22 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/{id}', 'userController@profile')->name('user.profile');
 
-Route::get('change_password', function () {
-    return view('change_password');
-});
+Route::get('/edit/user/', 'userController@edit')->name('user.edit');
+Route::post('/edit/user/', 'userController@update')->name('user.update');
 
-Route::get('view_user','view_usercontrolle@view_user');
+Route::get('/edit/password/user/', 'userController@passwordEdit')->name('password.edit');
+Route::post('/edit/password/user/', 'userController@passwordUpdate')->name('password.update');
 
-
-
-
-// Route::get('view_user',function(){
-//     return view('view_user');
-// });
-Route::get('edit_user', 'view_usercontrolle@edit')->name('edit');
-Route::post('update_user', 'view_usercontrolle@update_user')->name('update');
