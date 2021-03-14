@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -21,8 +22,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
+    public function home()
+    {  
+        $users = DB::table('users') ->get()->toaRray();
+
+        //return view('view_user', ['users' => $users]);
+            //  echo '<pre>';
+            // print_r($users);
+
+
+         return view('home',);
     }
+
 }
