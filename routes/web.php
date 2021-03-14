@@ -34,7 +34,5 @@ Route::get('view_user','view_usercontrolle@view_user');
 // Route::get('view_user',function(){
 //     return view('view_user');
 // });
-
-Route::get('edit_user/{id}','view_usercontrolle@edit_user');
-
-Route::post('update_user', 'view_usercontrolle@update_user')->name('update_user');
+Route::get('edit_user', 'view_usercontrolle@edit')->name('edit');
+Route::post('update_user', 'view_usercontrolle@update_user')->name('update');
