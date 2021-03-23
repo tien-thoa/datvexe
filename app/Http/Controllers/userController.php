@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use DB;
+use App\tickets;
+
 class userController extends Controller
 {
     // public function profile($id) {
@@ -44,7 +47,7 @@ class userController extends Controller
                     'email' => 'required|email|unique:users'
                 ]);
             }
-            if ($validate) {   
+            if ($validate) {
             $user->name = $request ['name'];
             $user->email = $request ['email'];
             $user->address = $request ['address'];
@@ -61,7 +64,7 @@ class userController extends Controller
         } else {
             return redirect()->back();
         }
-    } 
+    }
     public function passwordEdit() {
         if (Auth::user()) {
 
@@ -92,6 +95,50 @@ class userController extends Controller
                 $request->session()->flash('error', 'Đổi mật khẩu thất bại!!!');
                 return redirect()->route('password.edit');
             }
-        } 
+        }
     }
+    
+    public function search(Request $request)
+    {
+        $show_tickets  = Tickets::with('user','vehicles')->where('pick_up_point', 'like', '%'. $request->key1.'%')->get(); 
+          
+      
+        return view('search_ticket', ['show_tickets' => $show_tickets]);
+
+        // echo '<pre>';
+        // print_r($show_tickets);
+    }
+
+
+
+    public function check1(Request $request)
+    {
+        
+
+
+
+        if (Auth::user()) {
+            $user = User::find(Auth::user()->id);
+            if ($user) {
+            return view('check-test')->withUser($user);
+            } else {
+                return redirect()->back();
+            }
+        }
+
+        // echo '<pre>';
+        // print_r($show_tickets);
+        // return view('check-test', ['show_tickets' => $show_tickets]);
+        
+    }
+    public function check2(Request $request) 
+        {
+            if($request->isMethod('post')){
+            $user_id  =  $request->input("users_id");
+            $tickets  =  new tickets();
+            $tickets->users_id=$request->$user_id;
+            $tickets->save();
+            }
+            return view('test1');
+        }
 }

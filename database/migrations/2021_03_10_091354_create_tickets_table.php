@@ -22,6 +22,7 @@ class CreateTicketsTable extends Migration
             $table->dateTime('arrival_time');
             $table->string('price');
             $table->string('pick_up_point');
+            $table->string('drop_off_point');
             $table->timestamps();
         });
     }

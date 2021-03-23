@@ -4,96 +4,106 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Trang Chủ</title>
 
         <!-- Fonts -->
+        <link rel="stylesheet" href="{{asset('/fontend/css/welcome.css')}}">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Đăng nhập</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Đăng ký</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+        
+        <div class="logo" >
+            <a href="{{ url('/') }}">
+                <img src="{{asset('/fontend/images/logo.jpg')}}" width="150px" height="50px" >
+            </a>
         </div>
+         @if (Route::has('login'))
+        <div class="top-right links">
+        
+             @auth
+                <a href="{{ url('/home') }}">Home</a>
+            @else
+                <a href="{{ route('login') }}">Đăng nhập</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Đăng ký</a>
+                @endif
+            @endauth
+        </div>
+        @endif
+             
+        <div class="flex-center position-ref full-height">
+           
+           
+            <div class="content">
+                <!-- <div class="title m-b-md"> -->
+                    <div class="full-input ">
+                        
+                            <div class="fl img border-left">
+                                <img src="{{asset('/fontend/images/diachi7.jpg')}}" alt="biểu tượng địa chỉ" width="25px" height="30px">
+                            </div> 
+                            <div class="input-text">
+                                <input type="text" class="input-text " placeholder="Điểm đi">
+
+                            </div>
+
+                            <!-- <div class="llkIly fl">
+                                <svg width="28" height="28" viewBox="0 0 28 28"> 
+                                    <g stroke="#0060c4">
+                                        <g fill="#fff">
+                                            <circle cx="14" cy="14" r="14" stroke="none"></circle>
+                                            <circle cx="14" cy="14" r="13.5" fill="none"></circle>
+                                        </g>
+                                        <path fill="none" stroke-linecap="round" stroke-miterlimit="10" d="M20 10.5H8.5M20.5 10.5L17 7M20.5 10.5L17 14M19.5 17.5H9M8 17.5l3.5-3.5M11.5 21L8 17.5">
+                                        </path>
+                                    </g>
+                                </svg>
+                                
+                            </div> -->
+                            <div class="iQPTej"></div>
+                            <div class="fl img">
+                                <img src="{{asset('/fontend/images/diachi7.jpg')}}" alt="biểu tượng địa chỉ" width="25px" height="30px">
+
+                            </div>
+                            <div class="input-text">
+                                <input type="text" class="input-text" placeholder="Điểm đến">
+                            </div>
+                            <div class="iQPTej"></div>
+                            <div class="fl img">
+                                <img src="{{asset('/fontend/images/date1.jpg')}}" alt="biểu tượng địa chỉ" width="25px" height="30px">
+
+                            </div>
+
+                            <div class="input-text">
+                                <input type="text" class="input-text input-date" placeholder="Ngày đi">
+                            </div>
+                        
+                        
+                        <!-- <div>
+                            <input type="submit" value="TÌM VÉ XE" >
+                        </div> -->
+                        <div class="input-submit border-right" >
+                            <button class="input-submit border-right" type="submit">
+                                TÌM VÉ XE
+                            </button>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                <!-- </div> -->
+                    
+
+                <!-- <div class="links">
+                    
+                </div> -->
+            </div>
+
+        </div>
+         
+    
+    
     </body>
 </html>
